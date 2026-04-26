@@ -25,6 +25,7 @@ export default function NewResourcePage() {
 
                 <textarea
                     name="description"
+                    rows={20}
                     required
                     placeholder="Description"
                     className="p-3 rounded bg-[#0f131b] border border-slate-700 h-32 outline-none resize-none"

@@ -8,10 +8,11 @@ export async function searchResources(query: string) {
 
     const { data } = await supabase.rpc("match_resources", {
         query_embedding: embedding,
-        match_count: 30,
+        match_count: 5,
+        min_similarity: 0.5
     });
 
-    return data;
+    return data ?? [];
 }
 export async function createResource(data: any) {
     const embedding = await getEmbedding(data.description);

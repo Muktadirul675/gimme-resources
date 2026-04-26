@@ -28,7 +28,7 @@ export default function NewResourcePage() {
                     rows={20}
                     required
                     placeholder="Description"
-                    className="p-3 rounded bg-[#0f131b] border border-slate-700 h-32 outline-none resize-none"
+                    className="p-3 rounded bg-[#0f131b] border border-slate-700 outline-none resize-none"
                 />
 
                 <input name="url" placeholder="URL" className="p-3 rounded bg-[#0f131b] border border-slate-700 outline-none" />

@@ -1,3 +1,7 @@
+export const metadata = {
+  title: "About",
+};
+
 export default function AboutPage() {
     return (
         <div className="min-h-screen bg-[#121212] text-[#E6EAF2] px-4 py-12 rounded-lg">

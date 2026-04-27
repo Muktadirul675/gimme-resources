@@ -2,6 +2,10 @@ const contributors = [
     {name:'Md. Muktadirul Islam Mahi', email: 'muktadirul.05@gmail.com', 'brief': 'Brac University'}
 ]
 
+export const metadata = {
+  title: "Contributors",
+};
+
 export default function Contributors(){
     return <div className="p-3">
         <h1 className="text-2xl">Contributors</h1>

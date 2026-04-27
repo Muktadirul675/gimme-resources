@@ -46,7 +46,7 @@ export default function Inbox() {
     return (
         <div
             ref={containerRef}
-            className="w-full flex flex-col flex-wrap gap-2 pb-[100px]"
+            className="w-full flex flex-col flex-wrap gap-2 pt-[30px] pb-[100px]"
         >
             {messages.length === 0 ? (
                 <EmptyState />
@@ -88,7 +88,7 @@ export default function Inbox() {
 function UserSideChat({ msg }: { msg: string }) {
     return (
         <div className="w-full flex justify-end items-center px-3">
-            <div className="w-fit p-2 rounded-full bg-[#3B4A63] text-white">
+            <div className="w-fit p-3 rounded-2xl bg-[#3B4A63] text-white">
                 {msg}
             </div>
         </div>
@@ -104,7 +104,7 @@ function AISideChat({
 }) {
     return (
         <div className="flex w-full justify-start px-3">
-            <div className={`max-w-[98.5%] w-fit break-words overflow-hidden bg-zinc-900 rounded-2xl p-2 ${isStreaming ? 'animate-pulse' :''}`}>
+            <div className={`max-w-[98.5%] w-fit break-words overflow-hidden ${msg.length === 0?'bg-black':'bg-zinc-900'} rounded-2xl p-2 ${isStreaming ? 'animate-pulse-fast' :''}`}>
                 <MarkdownRenderer content={msg} />
             </div>
         </div>

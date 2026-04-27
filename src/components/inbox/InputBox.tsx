@@ -65,7 +65,15 @@ export default function InputBox() {
                     rows={1}
                     onInput={handleInput}
                     placeholder="Type your message..."
-                    className="flex-1 resize-none overflow-y-hidden bg-transparent px-3 py-2 text-[#E6EAF2] outline-none placeholder:text-slate-500"
+                    className="md:hidden flex-1 resize-none overflow-y-hidden bg-transparent px-3 py-2 text-[#E6EAF2] outline-none placeholder:text-slate-500"
+                />
+
+                <textarea
+                    ref={textareaRef}
+                    rows={1}
+                    onInput={handleInput}
+                    placeholder="Type your message... Shortcut: Press Tab+Enter to send"
+                    className="hidden md:block flex-1 resize-none overflow-y-hidden bg-transparent px-3 py-2 text-[#E6EAF2] outline-none placeholder:text-slate-500"
                 />
 
                 <div className="relative flex items-center justify-center">

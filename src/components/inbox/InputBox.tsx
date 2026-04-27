@@ -6,12 +6,18 @@ import { useMessenger } from "@/contexts/MessengerContext";
 import { BiSquare } from "react-icons/bi";
 
 export default function InputBox() {
-    const textareaRef = useRef<HTMLTextAreaElement | null>(null);
+    const mobileRef = useRef<HTMLTextAreaElement | null>(null);
+    const desktopRef = useRef<HTMLTextAreaElement | null>(null);
+
     const { sendMessage, stop } = useMessenger();
     const [loading, setLoading] = useState(false);
 
+    const getActiveRef = () => {
+        return window.innerWidth < 768 ? mobileRef : desktopRef;
+    };
+
     const handleInput = () => {
-        const el = textareaRef.current;
+        const el = getActiveRef().current;
         if (!el) return;
 
         const MAX_ROWS = 5;
@@ -34,11 +40,13 @@ export default function InputBox() {
     async function handleSubmit(e: FormEvent) {
         e.preventDefault();
 
-        const text = textareaRef.current?.value?.trim();
+        const el = getActiveRef().current;
+        const text = el?.value?.trim();
+
         if (!text || loading) return;
 
-        textareaRef.current!.value = "";
-        textareaRef.current!.style.height = "auto";
+        el!.value = "";
+        el!.style.height = "auto";
 
         setLoading(true);
 
@@ -50,7 +58,7 @@ export default function InputBox() {
     }
 
     function handleStop() {
-        stop();        // ð¥ abort stream
+        stop();
         setLoading(false);
     }
 
@@ -60,16 +68,18 @@ export default function InputBox() {
                 onSubmit={handleSubmit}
                 className="flex w-full items-end gap-2 rounded-[30px] border border-slate-600 bg-[#151922] p-2"
             >
+                {/* MOBILE */}
                 <textarea
-                    ref={textareaRef}
+                    ref={mobileRef}
                     rows={1}
                     onInput={handleInput}
                     placeholder="Type your message..."
                     className="md:hidden flex-1 resize-none overflow-y-hidden bg-transparent px-3 py-2 text-[#E6EAF2] outline-none placeholder:text-slate-500"
                 />
 
+                {/* DESKTOP */}
                 <textarea
-                    ref={textareaRef}
+                    ref={desktopRef}
                     rows={1}
                     onInput={handleInput}
                     placeholder="Type your message... Shortcut: Press Tab+Enter to send"
@@ -77,13 +87,10 @@ export default function InputBox() {
                 />
 
                 <div className="relative flex items-center justify-center">
-                    {/* STOP BUTTON */}
                     {loading ? (
                         <div className="relative flex h-10 w-10 items-center justify-center">
-                            {/* Spinner Ring */}
                             <div className="absolute h-10 w-10 rounded-full border-2 border-slate-200 border-t-transparent animate-spin"></div>
 
-                            {/* Stop Button */}
                             <button
                                 type="button"
                                 onClick={handleStop}
@@ -103,5 +110,5 @@ export default function InputBox() {
                 </div>
             </form>
         </div>
-    )
+    );
 }

@@ -10,7 +10,7 @@ export default function EmptyState() {
             </h1>
 
             <h2 className="text-lg md:text-xl text-slate-300 mt-2 mb-6">
-                🇧🇩 Curated from across Bangladesh's Native Trends
+                🇧🇩 Curated from across Native Trends of Bangladesh
             </h2>
 
             {/* Disclaimer */}
@@ -22,7 +22,7 @@ export default function EmptyState() {
             <div className="border border-blue-600 rounded-lg p-3 mb-8">
                 <BiInfoCircle className="text-blue-500" />
                 <p>
-                    This platform runs on data that are feed to a RAG system manually. It doesn't crawl the web, as it doesn't ensure native trends. As a result, not every resource may be present here. If you don't find your desired resources, please <a href="mailto:muktadirul.05@gmail.com?subject=Issue found on gimme-resources.vercel.app&body=I%20want%20to%20report%20about..." className="text-blue-500">report</a>. <b>Also note that, to ensure resource availability we are looking for contributors. If you want to contribute resources, please visit <a href="https://forms.gle/SJrSJgRRmCjSBbm1A">here</a>. </b>
+                    This platform runs on data that are fed to a RAG system manually. It doesn't crawl the web, as it doesn't ensure native trends. As a result, not every resource may be present here. If you don't find your desired resources, please <a href="mailto:muktadirul.05@gmail.com?subject=Issue found on gimme-resources.vercel.app&body=I%20want%20to%20report%20about..." className="text-blue-500">report</a>. <b>Also note that, to ensure resource availability we are looking for contributors. If you want to contribute resources, please visit <a href="https://forms.gle/SJrSJgRRmCjSBbm1A">here</a>. </b>
                 </p>
             </div>
 

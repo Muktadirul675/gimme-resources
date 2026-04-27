@@ -2,7 +2,8 @@
 
 import { useMessenger } from "@/contexts/MessengerContext";
 import { useRouter } from "next/navigation";
-import { BiCross, BiReset } from "react-icons/bi";
+import { BiReset } from "react-icons/bi";
+import { GiCancel } from "react-icons/gi";
 
 export default function ResetConversation() {
     const { reset } = useMessenger()
@@ -21,7 +22,7 @@ export default function ResetConversation() {
         <h3 className="test-white text-center text-2xl">Are you sure you want to reset conversation?</h3>
         <h3 className="test-white text-center text-lg">All Messages Will be Lost!</h3>
         <div className="flex items-center gap-2">
-            <button onClick={goBack} className="rounded bg-white text-black p-2 my-2 flex items-center gap-2"><BiCross className="text-xl" /> Cancel</button>
+            <button onClick={goBack} className="rounded bg-white text-black p-2 my-2 flex items-center gap-2"><GiCancel className="text-xl" /> Cancel</button>
             <button onClick={handleReset} className="rounded text-white bg-red-500 p-2 my-2 flex items-center gap-2"><BiReset className="text-xl" /> Reset</button>
         </div>
     </div>
